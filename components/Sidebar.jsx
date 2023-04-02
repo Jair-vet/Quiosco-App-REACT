@@ -4,11 +4,13 @@ export const Sidebar = () => {
     return (
         <>
             <Image 
-                width={200}
+                width={300}
                 height={100}
                 src="/assets/img/logo.svg"
                 alt="imagen logotipo"
             />
+
+
         </>
     )
 }
