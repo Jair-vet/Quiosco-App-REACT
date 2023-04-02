@@ -2,8 +2,6 @@ import { PrismaClient } from "@prisma/client"
 
 export default function Home({categorias}) {
 
-  
-
   return (
     <>
         <h1 className='text-3xl text-center'>Hola mundo usando Next.js</h1>
