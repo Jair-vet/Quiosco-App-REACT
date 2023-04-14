@@ -1,10 +1,12 @@
 import { formatearDinero } from "@/helpers"
 import useQuiosco from "@/hooks/useQuiosco"
 import Image from "next/image"
+import { useState } from "react"
 
 
 export const ModalProducto = () => {
   const { producto, handleChangeModal } = useQuiosco()
+  const [cantidad, setCantidad] = useState(1)
 
     return (
       <div className="md:flex gap-10 rounded-lg p-8">
@@ -33,6 +35,42 @@ export const ModalProducto = () => {
           <p className="mt-5 font-black text-4xl text-amber-500 text-center">
             {formatearDinero(producto.precio)}
           </p>
+
+          {/* Panel de Botones Aregar o Eliminar */}
+          <div className="flex gap-4 mt-5 justify-center">
+            {/* Menos */}
+            <button 
+              type="button"
+              className="hover:text-red-500"
+              onClick={() => {
+                if(cantidad <= 1) return
+                setCantidad(cantidad - 1)
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+
+            {/* Cantidad */}
+            <p className="text-3xl">
+              {cantidad}
+            </p>
+
+            {/* Mas */}
+            <button 
+              type="button"
+              className="hover:text-emerald-500"
+              onClick={() => {
+                if(cantidad >= 5) return
+                setCantidad(cantidad + 1)
+              }}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     )
