@@ -5,7 +5,7 @@ import { useState } from "react"
 
 
 export const ModalProducto = () => {
-  const { producto, handleChangeModal } = useQuiosco()
+  const { producto, handleChangeModal, handleAgregarPedido } = useQuiosco()
   const [cantidad, setCantidad] = useState(1)
 
     return (
@@ -69,6 +69,18 @@ export const ModalProducto = () => {
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
+            </button>
+          </div>
+
+          {/* Agregar al Pedido */}
+          <div className="flex justify-center">
+            <button
+              type="button"
+              className="bg-emerald-500 hover:bg-emerald-700 px-5 py-2 mt-5 text-white rounded-lg 
+                      w-2/3 font-bold uppercase"
+              onClick={() => handleAgregarPedido({...producto, cantidad})}
+            >
+              Agregar
             </button>
           </div>
         </div>
