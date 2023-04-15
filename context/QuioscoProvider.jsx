@@ -47,6 +47,10 @@ const QuioscoProvider = ({children}) => {
             setPedido([...pedido, producto])
         }
 
+        setTimeout(() => {
+            setModal(false)
+        },"500")
+
     }
 
     return(
