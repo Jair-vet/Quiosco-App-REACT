@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { createContext, useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
 const QuioscoContext = createContext()
 const QuioscoProvider = ({children}) => {
@@ -43,8 +44,30 @@ const QuioscoProvider = ({children}) => {
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
             setPedido(pedidoActualizado)
 
+            // Toast guardado
+            toast.success('Guardado Correctamente',{
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
         } else {
             setPedido([...pedido, producto])
+            // Toast Agregado
+            toast.success('Agregado al Pedido', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
         }
 
         setTimeout(() => {
