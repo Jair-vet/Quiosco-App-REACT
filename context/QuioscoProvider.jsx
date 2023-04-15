@@ -37,7 +37,7 @@ const QuioscoProvider = ({children}) => {
         setModal(!modal)
     }
 
-    const handleAgregarPedido = ({categoriaId, imagen, ...producto}) => {
+    const handleAgregarPedido = ({categoriaId, ...producto}) => {
         if(pedido.some(productoState => productoState.id === producto.id)) {
             // Actualizar la Cantidad
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id ? producto : productoState)
@@ -46,7 +46,7 @@ const QuioscoProvider = ({children}) => {
             // Toast guardado
             toast.success('Guardado Correctamente',{
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
@@ -59,7 +59,7 @@ const QuioscoProvider = ({children}) => {
             // Toast Agregado
             toast.success('Agregado al Pedido', {
                 position: "bottom-right",
-                autoClose: 5000,
+                autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
