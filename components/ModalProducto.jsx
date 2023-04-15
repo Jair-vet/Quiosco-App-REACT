@@ -93,7 +93,7 @@ export const ModalProducto = () => {
                       w-2/3 font-bold uppercase"
               onClick={() => handleAgregarPedido({...producto, cantidad})}
             >
-              Agregar
+              {edicion ? 'Guardar Cambios' : 'Añadir al Pedido'}
             </button>
           </div>
         </div>
