@@ -1,12 +1,18 @@
 import Image from "next/image"
 import { formatearDinero } from '../helpers'
+import axios from "axios"
 
 export const Orden = ({orden}) => {
 
     const { id, nombre, total, pedido } = orden
 
-    const completarOrden = () => {
-        console.log('Completando...');
+    const completarOrden = async () => {
+        try {
+            const data = await axios.post(`/api/ordenes/${id}`)
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
