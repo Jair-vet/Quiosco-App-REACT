@@ -26,6 +26,9 @@ export const SidebarAdmin = () => {
                         </button>
                     ))}
                 </div>
+                <div>
+                    Total de Ventas:
+                </div>
             </div>
         </>
     )

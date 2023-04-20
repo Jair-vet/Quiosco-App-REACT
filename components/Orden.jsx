@@ -61,7 +61,7 @@ export const Orden = ({orden}) => {
                     </div>
                 ))}
             </div>
-            <div className="text-center md:flex md:items-center md:justify-between my-10">
+            <div className="text-center md:flex md:items-center md:justify-between">
                 <p className="mt-5 text-2xl font-bold text-gray-400">
                     Total a Pagar: <span className="font-black text-3xl text-emerald-500">{formatearDinero(total)}</span>
                 </p>
