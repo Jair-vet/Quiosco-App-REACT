@@ -11,11 +11,7 @@ export const OrdenTerminada = ({terminada}) => {
     return (
         <div className="snap-y p-10 border-b-4 first-of-type:border-t-4 duration-100">
             <p className="text-xl font-black">Cliente: <span className="ml-10">{nombre}</span></p>
-            <p className="text-xl font-black">Fecha: 
-                <span className="ml-10">
-                    {formatearFecha(fecha)}
-                </span>
-            </p>
+            <p className="text-xl font-black">Fecha: <span className="ml-10">{formatearFecha(fecha)}</span></p>
 
             <div>
                 {pedido.map(platillo => (

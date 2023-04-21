@@ -5,21 +5,23 @@ export const formatearDinero = cantidad => {
     })
 }
 
-export const formatearFecha = fecha =>  {
+export const formatearFecha = (fecha) => {
+
+    let nuevaFecha;
+
+    if (fecha.includes("T00:00:00.000Z")) {
+      nuevaFecha = new Date(fecha.split("T")[0].split("-"));
+    } else {
+      nuevaFecha = new Date(fecha);
+    }
+
+    const opciones = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     
-    if (fecha === null || fecha === 'undefined') return fecha;
-    
-    const timestamp = 1681767961608
-    let date = new Date(timestamp)
-
-    console.log(fecha);
-
-    
-    const fechaFinal = date.getDate()+
-          "/"+(date.getMonth()+ 1)+
-          "/"+date.getFullYear()
-
-    return fechaFinal
-
-}
+    return nuevaFecha.toLocaleDateString("es-ES", opciones);
+};
 
